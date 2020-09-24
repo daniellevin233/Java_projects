@@ -1,0 +1,78 @@
+daniellevin
+
+Daniel Levin
+
+=============================
+=      File description     =
+=============================
+
+StorageTest.java - test for abstract storage class
+LockerTest.java - test for locker class
+LongTermTest.java - test for LongTermStorage class
+SpaceshipDepositoryTest.java - test for running tests for storages
+BoopingSiteTest.java - test for BoopingSite class
+
+Storage.java - Storage class implementation
+Locker.java - Locker class implementation, extends Storage
+LongTermStorage.java - LongTermStorage class implementation, extends Storage
+BoopingSite.java
+ComparatorProximity.java
+ComparatorRating.java
+
+=============================
+=          Design           =
+=============================
+
+The main goal was to avoid code reduplication, and to keep the logic of the structures concise.
+
+=================================================
+=          Starship Depository Design           =
+=================================================
+
+Abstract class StorageTest was created to avoid code reduplication in testing, after all, each storage
+implements partially similar functionality.
+
+Due to the same reasons, abstract Storage class was created, with Locker and LongTermStorage extending it.
+Locker "has a" static LongTermStorage because of necessity to transfer items there.
+
+
+Class LongTermStorage also extends the Storage class, so it has almost all the needy functionality, with
+extension of some necessary methods that are unique for LongTermStorage. So it is basically the same as the
+Locker class.
+
+In class Locker Map of constraints was created, because its the fastest method to check such type of
+constraints.
+
+=================================================
+=          Hotel Search Engine Design           =
+=================================================
+
+There were no specific design decisions, BoopingSite is simple class, with all the given functionality.
+See the implementations details block for additional information.
+
+=================================================================
+=          Starship Depository Implementation details           =
+=================================================================
+
+Class storage has a map representing inventory and no other data structure because I've found it unnecessary.
+In addition, it minimizes memory complexity.
+
+For checking available capacity, additional field was introduced - curOccupiedCapacity. It enables to perform
+all the needy functionality.
+
+=================================================================
+=          Hotel Search Engine Implementation details           =
+=================================================================
+
+The basic implementation decision was to make ArrayList of hotels for comfortable sorting using the
+containers interface.
+
+In addition I've chosen not to implement Comparable interface because logically hotels don't have any
+default order to be sorted on. So two Comparator classes were implemented, and called properly by sorting
+functions.
+
+Some additional functions were introduced to avoid code reduplication and keep modularity principles.
+
+=============================
+=    Answers to questions   =
+=============================

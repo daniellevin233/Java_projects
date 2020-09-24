@@ -1,0 +1,35 @@
+daniellevin
+
+Daniel Levin
+
+=============================
+=      File description     =
+=============================
+Book.java - contains the Book class implementation.
+Patron.java - contains the Patron class implementation.
+Library.java - contains the Library class implementation, which has its lists of patrons and books and
+is managing it
+
+=============================
+=          Design           =
+=============================
+Every patron holds in addition a vector of books he is borrowing at the current moment, this was made
+to define which patron is reading some book to be able to return it - to take it from him
+
+=============================
+=  Implementation details   =
+=============================
+In Patron class I created additional feature - list of borrowed books, I decided to implement it
+as vector because certain patron doesn't have some capacity of books that he can borrow simultaneously,
+so we don't know in advance the size of the data structure we will need. Vector is the comfortable one
+to work with.
+
+To implement id numbers, indexes of the current positions in arrays were chosen. Each book is added once,
+and never taken out, so there is an injective function between the array indexes and books. That's why I
+decided to use this feature. In addition to the moment of implementation, unfortunately,
+we've not seen the static variables yet that were very useful for counting books objects.
+The same thing was implemented for patron.
+
+=============================
+=    Answers to questions   =
+=============================
